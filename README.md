@@ -43,7 +43,7 @@ function sellStuff(item, discount = 0.25, tax){
 }
 ```
 
-If you have more than two variables and you want to take advantage of the default value in your function, but specify the third variable, simply pass in `undefined` for the second variable, and JavaScript will use your specified default value. 
+If we have more than two variables and we want to take advantage of the default value in our function, but specify the third variable, simply pass in `undefined` for the second variable, and JavaScript will use our specified default value. 
 
 **Note: Arrow functions do not have default arguments.**
 
