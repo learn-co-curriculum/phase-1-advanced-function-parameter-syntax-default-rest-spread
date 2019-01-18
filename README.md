@@ -8,14 +8,13 @@
 
 ## Introduction
 
-ES2016 has brought a number of improvements to parameters that we can pass into
-functions. Unlike most modern programming languages like Ruby or Python,
+Unlike most modern programming languages like Ruby or Python,
 JavaScript didn't have a way to pass a default parameter into a function.
 However, with the introduction of ES2016, that is no longer the case. It also
 introduced two other helpful parameters, the `rest` parameter and the `spread`
-operator. In this lab, we're going to learn about and practice using all three. 
+operator. In this lesson, we're going to learn about all three. 
 
-## Use JavaScript's default function argument as a parameter in a function
+## Use JavaScript's Default Function Argument as a Parameter in a Function
 
 Let's say you work for an e-commerce site, and you're prepping for your
 post-holiday sales. You're working on some code for your website and you need to
@@ -29,7 +28,7 @@ function sellStuff(item, discount){
 }
 ```
 
-Since normally our discounts are on a per-item basis, this code functions great.
+Since normally our discounts are on a per-item basis, this code functions well.
 But it could be a tiny bit more efficient now that we're going to be setting a
 25% off across the board discount. We can set a default 25% off discount by
 making a tiny change in our code like this:
@@ -59,7 +58,7 @@ default value.
 
 **Note: Arrow functions do not have default arguments.**
 
-## Use JavaScript's `rest` parameter as a parameter in a function
+## Use JavaScript's `rest` Parameter as a Parameter in a Function
 
 You might have heard a little bit about JavaScript's magical "three dots". These three
 dots allow you to do two very different things - the `rest` parameter and the
@@ -102,7 +101,7 @@ muppets("Dr. Bunson", "Beaker", "Miss Piggy", "Kermit", "Animal")
 Since the `rest` parameter gathers the rest of the parameters given to a
 function, it should always come at the end of a list of parameters. 
 
-## Use JavaScript's `spread` operator as a parameter in a function
+## Use JavaScript's `spread` Operator as a Parameter in a Function
 
 With the `rest` operator, JavaScript allowed us to put the remaining arguments
 into an array. The `spread` operator allows us to pass elements of an array into
@@ -122,10 +121,6 @@ and we are passing in an array using the `spread` operator. The function is
 adding all three numbers contained within the array. Play around with it using a
 bigger array and see what happens when the array has more numbers than our
 function has parameters. 
-
-## Instructions
-
-- Have students write functions using default arguments, rest parameters, and spread operators
 
 ## Conclusion
 
