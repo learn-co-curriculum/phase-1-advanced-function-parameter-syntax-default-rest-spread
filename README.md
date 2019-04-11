@@ -78,7 +78,7 @@ function muppet_lab(a,b){
   console.log(a,b) // Dr. Bunson Beaker
 }
 
-muppets("Dr. Bunson", "Beaker", "Miss Piggy", "Kermit", "Animal")
+muppet_lab("Dr. Bunson", "Beaker", "Miss Piggy", "Kermit", "Animal")
 ```
 
 But what happens if we want to capture the rest of the arguments
@@ -88,14 +88,14 @@ how this works:
 
 ```js
 function muppet_lab(a, b, ...muppets) {
-  console.log(x, ' ', y); // Dr. Bunson Beaker
+  console.log(a, ' ', b); // Dr. Bunson Beaker
 
   console.log(muppets); // ["Miss Piggy", "Kermit", "Animal"]
   console.log(muppets[0]); // Miss Piggy
   console.log(muppets.length); // 3
 }
 
-muppets("Dr. Bunson", "Beaker", "Miss Piggy", "Kermit", "Animal")
+muppet_lab("Dr. Bunson", "Beaker", "Miss Piggy", "Kermit", "Animal")
 ```
 
 Since the `rest` parameter gathers the rest of the parameters given to a
