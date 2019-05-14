@@ -12,7 +12,7 @@ Unlike most modern programming languages like Ruby or Python,
 JavaScript didn't have a way to pass a default parameter into a function.
 However, with the introduction of ES2016, that is no longer the case. It also
 introduced two other helpful parameters, the `rest` parameter and the `spread`
-operator. In this lesson, we're going to learn about all three. 
+operator. In this lesson, we're going to learn about all three.
 
 ## Use JavaScript's Default Function Argument as a Parameter in a Function
 
@@ -20,7 +20,7 @@ Let's say you work for an e-commerce site, and you're prepping for your
 post-holiday sales. You're working on some code for your website and you need to
 set a discount of 25% across the board for everything that you sell on the
 website. We have a function that takes in an `item` as a price in dollars and a
-`discount` as a percentage, and returns the total amount due. 
+`discount` as a percentage, and returns the total amount due.
 
 ```js
 function sellStuff(item, discount){
@@ -40,7 +40,7 @@ function sellStuff(item, discount = 0.25){
 ```
 
 Now, if we don't pass in a parameter for our discount, JavaScript will assume
-that we want to apply a 25% off discount and calculate it appropriately for us. 
+that we want to apply a 25% off discount and calculate it appropriately for us.
 
 What happens if we had three variables, but didn't want to specify the second
 variable?
@@ -54,9 +54,8 @@ function sellStuff(item, discount = 0.25, tax){
 If we have more than two variables and we want to take advantage of the default
 value in our function, but specify the third variable, simply pass in
 `undefined` for the second variable, and JavaScript will use our specified
-default value. 
+default value.
 
-**Note: Arrow functions do not have default arguments.**
 
 ## Use JavaScript's `rest` Parameter as a Parameter in a Function
 
@@ -70,7 +69,7 @@ function as an argument.
 Sometimes, we might not know exactly how many arguments we want to pass into a
 function, but we might know that we only want to do something with the first two
 arguments. In JavaScript, it's possible to pass in any number of arguments into
-a function. 
+a function.
 
 ```js
 
@@ -99,7 +98,7 @@ muppet_lab("Dr. Bunson", "Beaker", "Miss Piggy", "Kermit", "Animal")
 ```
 
 Since the `rest` parameter gathers the rest of the parameters given to a
-function, it should always come at the end of a list of parameters. 
+function, it should always come at the end of a list of parameters.
 
 ## Use JavaScript's `spread` Operator as a Parameter in a Function
 
@@ -120,7 +119,7 @@ So what's happening here? We have a simple add function, with three arguments,
 and we are passing in an array using the `spread` operator. The function is
 adding all three numbers contained within the array. Play around with it using a
 bigger array and see what happens when the array has more numbers than our
-function has parameters. 
+function has parameters.
 
 ## Conclusion
 
@@ -130,7 +129,7 @@ context. If the three dots occur when you are calling the function, then it's
 the `spread` operator. If they happen when you're defining the function, it's
 the `rest` parameter. Don't forget to use default parameters when you have an
 argument that you are going to be defining on a regular basis to increase your
-code efficiency! 
+code efficiency!
 
 ## Resources
 
