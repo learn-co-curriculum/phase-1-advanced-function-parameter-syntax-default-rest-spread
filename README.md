@@ -19,43 +19,79 @@ operator. In this lesson, we're going to learn about all three.
 Let's say you work for an e-commerce site, and you're prepping for your
 post-holiday sales. You're working on some code for your website and you need to
 set a discount of 25% across the board for everything that you sell on the
-website. We have a function that takes in an `item` as a price in dollars and a
-`discount` as a percentage, and returns the total amount due.
+website. 
+
+We have a function that takes in an `itemPrice` as a price in dollars and a
+`discount` as a percentage, and returns the total amount due:
 
 ```js
-function sellStuff(item, discount){
-    return item - (item * discount)
+function discountedPrice(itemPrice){
+    return itemPrice - (itemPrice * 0.25)
 }
 ```
 
-Since normally our discounts are on a per-item basis, this code functions well.
-But it could be a tiny bit more efficient now that we're going to be setting a
-25% off across the board discount. We can set a default 25% off discount by
-making a tiny change in our code like this:
+But it seems odd to hard-code the discount to `0.25`. We want to make this
+function a little bit more flexible. To do this, we'll specify that the discount
+should be passed in as an argument.
 
 ```js
-function sellStuff(item, discount = 0.25){
-    return item - (item * discount)
+function discountedPrice(itemPrice, discount){
+    return itemPrice - (itemPrice * discount)
 }
 ```
 
-Now, if we don't pass in a parameter for our discount, JavaScript will assume
-that we want to apply a 25% off discount and calculate it appropriately for us.
-
-What happens if we had three variables, but didn't want to specify the second
-variable?
+So, calls to `discountedPrice` will look like:
 
 ```js
-function sellStuff(item, discount = 0.25, tax){
-    return item - (item * discount)
+function discountedPrice(itemPrice, discount){
+    return itemPrice - (itemPrice * discount)
 }
+discountedPrice(100, 0.25) //=> 75
 ```
 
-If we have more than two variables and we want to take advantage of the default
-value in our function, but specify the third variable, simply pass in
-`undefined` for the second variable, and JavaScript will use our specified
-default value.
+But it _also_ seems a bit strange to have to pass the discount amount
+on every call. We'd like `discount` to default to `0.25`. It'll be 25%
+off _unless_ we choose to pass a new discount percentage into `discountedPrice`.
 
+```js
+function discountedPrice(itemPrice, discount = 0.25){
+    return itemPrice - (itemPrice * discount)
+}
+discountedPrice(100) //=> 75
+discountedPrice(100, 0.5) //=> 50 
+```
+
+It's common to get the "default" value by simply not providing an argument. In 
+this call, we simply leave off the optional discount percentage.
+
+```js
+discountedPrice(100, 0.5) //=> 50
+```
+
+What would happen if we added `tax` to `discountedPrice` so that we could
+add a tax percentage to be added to the sales price? We can tell
+JavaScript functions to use their default, by passing in `undefined`
+instead of a value:
+
+```js
+function discountedAndTaxedPrice(itemPrice, discount = 0.25, tax){
+    return itemPrice - (itemPrice * discount) + (itemPrice + tax)
+}
+discountedAndTaxedPrice(100, 0.15, 0.08) //=> 185.0799....
+
+// BREAKS:
+// discountedAndTaxedPrice(100). JavaScript sees (100, 0.15, Not-a-number)
+// to make this work tax would also need a default value.
+
+// ALSO BREAKS:
+// discountedAndTaxedPrice(100, 0.25). JavaScript sees (100, 0.25, Not-a-number)
+
+// WORKS
+discountedAndTaxedPrice(100, undefined, 0.08) //=> 175.07999999
+
+```
+
+By passing `undefined` JavaScript slots in the default value. 
 
 ## Use JavaScript's `rest` Parameter as a Parameter in a Function
 
