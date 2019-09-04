@@ -30,7 +30,10 @@ function discountedPrice(itemPrice){
 }
 ```
 
-But it seems odd to hard-code the discount to `0.25`. We want to make this
+But it seems unwise to hard-code the discount to `0.25`. Management's whims on
+discount rates change almost daily, so it might be 25% or 35% or 17%. Who knows.
+Many programmers get stuck thinking about all possible what-ifs and that's not
+good. Here, though, it's pretty clear this is likely to change. Let's make this
 function a little bit more flexible. To do this, we'll specify that the discount
 should be passed in as an argument.
 
@@ -49,7 +52,7 @@ function discountedPrice(itemPrice, discount){
 discountedPrice(100, 0.25) //=> 75
 ```
 
-But it _also_ seems a bit strange to have to pass the discount amount
+But it _also_ seems a bit of a burden to have to pass the discount amount
 on every call. We'd like `discount` to default to `0.25`. It'll be 25%
 off _unless_ we choose to pass a new discount percentage into `discountedPrice`.
 
