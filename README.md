@@ -19,7 +19,7 @@ operator. In this lesson, we're going to learn about all three.
 Let's say you work for an e-commerce site, and you're prepping for your
 post-holiday sales. You're working on some code for your website and you need to
 set a discount of 25% across the board for everything that you sell on the
-website. 
+website.
 
 We have a function that takes in an `itemPrice` as a price in dollars and a
 `discount` as a percentage, and returns the total amount due:
@@ -61,14 +61,14 @@ function discountedPrice(itemPrice, discount = 0.25){
     return itemPrice - (itemPrice * discount)
 }
 discountedPrice(100) //=> 75
-discountedPrice(100, 0.5) //=> 50 
+discountedPrice(100, 0.5) //=> 50
 ```
 
-It's common to get the "default" value by simply not providing an argument. In 
+It's common to get the "default" value by simply not providing an argument. In
 this call, we simply leave off the optional discount percentage.
 
 ```js
-discountedPrice(100, 0.5) //=> 50
+discountedPrice(100) //=> 75
 ```
 
 What would happen if we added `tax` to `discountedPrice` so that we could
