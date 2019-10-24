@@ -78,7 +78,7 @@ instead of a value:
 
 ```js
 function discountedAndTaxedPrice(itemPrice, discount = 0.25, tax){
-    return itemPrice - (itemPrice * discount) + (itemPrice + tax)
+    return itemPrice - (itemPrice * discount) + (itemPrice * tax)
 }
 discountedAndTaxedPrice(100, 0.15, 0.08) //=> 185.0799....
 
