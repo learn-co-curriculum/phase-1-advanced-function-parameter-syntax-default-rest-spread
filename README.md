@@ -31,11 +31,9 @@ function discountedPrice(itemPrice){
 ```
 
 But it seems unwise to hard-code the discount to `0.25`. Management's whims on
-discount rates change almost daily, so it might be 25% or 35% or 17%. Who knows.
-Many programmers get stuck thinking about all possible what-ifs and that's not
-good. Here, though, it's pretty clear this is likely to change. Let's make this
-function a little bit more flexible. To do this, we'll specify that the discount
-should be passed in as an argument.
+discount rates change almost daily, as the corporate sales offices' machine-learning
+algorithms recommend new discount rates. Because of this, we want to encode the
+discount rate as a _parameter_ of the function.
 
 ```js
 function discountedPrice(itemPrice, discount){
@@ -49,52 +47,35 @@ So, calls to `discountedPrice` will look like:
 function discountedPrice(itemPrice, discount){
     return itemPrice - (itemPrice * discount)
 }
-discountedPrice(100, 0.25) //=> 75
+discountedPrice(100, 0.25) //=> 75.0
 ```
 
-But it _also_ seems a bit of a burden to have to pass the discount amount
-on every call. We'd like `discount` to default to `0.25`. It'll be 25%
+But it _also_ seems a bit of a burden to **have** to pass the discount amount
+on every call. We'd like `discount` to _default_ to `0.25`. It'll be 25%
 off _unless_ we choose to pass a new discount percentage into `discountedPrice`.
+
+When writing functions that have _parameters_ that take default values, it's
+best practice to put them at the **end** of the parameter list.
 
 ```js
 function discountedPrice(itemPrice, discount = 0.25){
     return itemPrice - (itemPrice * discount)
 }
-discountedPrice(100) //=> 75
-discountedPrice(100, 0.5) //=> 50
-```
-
-It's common to get the "default" value by simply not providing an argument. In
-this call, we simply leave off the optional discount percentage.
-
-```js
-discountedPrice(100) //=> 75
+discountedPrice(100) //=> 75.0
+discountedPrice(100, 0.5) //=> 50.0
 ```
 
 What would happen if we added `tax` to `discountedPrice` so that we could
-add a tax percentage to be added to the sales price? We can tell
-JavaScript functions to use their default, by passing in `undefined`
-instead of a value:
+add a tax percentage to be added to the sales price? We'll honor best
+pratices and put `tax` before `discount`.
 
 ```js
-function discountedAndTaxedPrice(itemPrice, discount = 0.25, tax){
+function discountedAndTaxedPrice(itemPrice, tax, discount = 0.25){
     return itemPrice - (itemPrice * discount) + (itemPrice * tax)
 }
-discountedAndTaxedPrice(100, 0.15, 0.08) //=> 185.0799....
-
-// BREAKS:
-// discountedAndTaxedPrice(100). JavaScript sees (100, 0.15, Not-a-number)
-// to make this work tax would also need a default value.
-
-// ALSO BREAKS:
-// discountedAndTaxedPrice(100, 0.25). JavaScript sees (100, 0.25, Not-a-number)
-
-// WORKS
-discountedAndTaxedPrice(100, undefined, 0.08) //=> 175.07999999
-
+discountedAndTaxedPrice(100, 0.15) //=> 185.0799....
 ```
 
-By passing `undefined` JavaScript slots in the default value. 
 
 ## Use JavaScript's `rest` Parameter as a Parameter in a Function
 
