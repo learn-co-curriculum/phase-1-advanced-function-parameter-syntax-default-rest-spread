@@ -73,7 +73,7 @@ pratices and put `tax` before `discount`.
 function discountedAndTaxedPrice(itemPrice, tax, discount = 0.25){
     return itemPrice - (itemPrice * discount) + (itemPrice * tax)
 }
-discountedAndTaxedPrice(100, 0.15) //=> 185.0799....
+discountedAndTaxedPrice(100, 0.15) //=> 90
 ```
 
 
