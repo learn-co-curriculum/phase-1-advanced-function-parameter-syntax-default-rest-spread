@@ -70,10 +70,12 @@ add a tax percentage to be added to the sales price? We'll honor best
 pratices and put `tax` before `discount`.
 
 ```js
-function discountedAndTaxedPrice(itemPrice, tax, discount = 0.25){
-    return itemPrice - (itemPrice * discount) + (itemPrice * tax)
-}
-discountedAndTaxedPrice(100, 0.15) //=> 90
+function discountedAndTaxedPrice(itemPrice, tax, discount = 0.25) {
+  let subtotal = itemPrice - (itemPrice * discount);
+  return subtotal + (subtotal * tax);
+};
+
+discountedAndTaxedPrice(100, 0.15); //=> 86.25
 ```
 
 
