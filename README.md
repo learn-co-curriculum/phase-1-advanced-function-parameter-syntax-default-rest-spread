@@ -93,11 +93,11 @@ a function.
 
 ```js
 
-function muppet_lab(a,b){
+function muppetLab(a,b){
   console.log(a,b) // Dr. Bunson Beaker
 }
 
-muppet_lab("Dr. Bunson", "Beaker", "Miss Piggy", "Kermit", "Animal")
+muppetLab("Dr. Bunson", "Beaker", "Miss Piggy", "Kermit", "Animal")
 ```
 
 But what happens if we want to capture the rest of the arguments
@@ -106,7 +106,7 @@ arguments that we pass into the function, and gather them into an array. Here's
 how this works:
 
 ```js
-function muppet_lab(a, b, ...muppets) {
+function muppetLab(a, b, ...muppets) {
   console.log(a, ' ', b); // Dr. Bunson Beaker
 
   console.log(muppets); // ["Miss Piggy", "Kermit", "Animal"]
@@ -114,7 +114,7 @@ function muppet_lab(a, b, ...muppets) {
   console.log(muppets.length); // 3
 }
 
-muppet_lab("Dr. Bunson", "Beaker", "Miss Piggy", "Kermit", "Animal")
+muppetLab("Dr. Bunson", "Beaker", "Miss Piggy", "Kermit", "Animal")
 ```
 
 Since the `rest` parameter gathers the rest of the parameters given to a
