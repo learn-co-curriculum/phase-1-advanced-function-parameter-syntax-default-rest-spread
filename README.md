@@ -114,7 +114,7 @@ discountedAndTaxedPrice(100, 0.10); //=> 82.5
 discountedAndTaxedPrice(100, 0.10, 0.20); //=> 88
 ```
 
-## Use JavaScript's `rest` Parameter to Define Parameters in a function
+## Use JavaScript's `rest` Parameter to Define Parameters in a Function
 
 You might have heard a little bit about JavaScript's magical "three dots". These
 three dots can be used in two very different ways — as the `rest` parameter and
