@@ -196,10 +196,9 @@ particularly helpful when we aren't sure how many arguments will be passed in
 but still want access to all of them inside our function.
 
 Given that the syntax for the `spread` operator and the `rest` parameter is the
-same, how do we know when JavaScript is using the `spread` operator and when
-it's using the `rest` parameter? It's all about context. If the three dots occur
-when you are _calling_ the function, then it's the `spread` operator. If they
-happen when you're _defining_ the function, it's the `rest` parameter.
+same, how do we know which is being used? It's all about context. If the three
+dots occur when you are _calling_ the function, then it's the `spread` operator.
+If they happen when you're _defining_ the function, it's the `rest` parameter.
 
 ## Resources
 
