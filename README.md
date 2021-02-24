@@ -8,8 +8,8 @@
 
 ## Introduction
 
-The most typical way to handle function parameters for JavaScript functions is
-to define them individually and then pass a value for each as an argument when
+The typical way to handle function parameters for JavaScript functions is to
+define them individually and then pass a value for each as an argument when
 calling the function:
 
 ```js
@@ -27,7 +27,7 @@ tools for handling parameters and arguments that can make our code more flexible
 and efficient: default values, the `rest` parameter and the `spread` operator.
 We will learn how to use all three in this lesson.
 
-## SEt a Default Value for a Function Parameter
+## Set a Default Value for a Function Parameter
 
 Let's say you work for an e-commerce site, and you're prepping for your
 post-holiday sales. You're working on some code for your website and you need to
@@ -35,7 +35,7 @@ set a discount of 25% across the board for everything that you sell on the
 website.
 
 We can create a function that takes in an `itemPrice` as a price in dollars and
-a `discount` as a percentage, and returns the total amount due:
+returns the discounted price:
 
 ```js
 function discountedPrice(itemPrice){
@@ -54,7 +54,7 @@ function discountedPrice(itemPrice, discount){
 }
 ```
 
-So, calls to `discountedPrice` will look like:
+So, calls to `discountedPrice()` will look like:
 
 ```js
 function discountedPrice(itemPrice, discount){
@@ -65,8 +65,8 @@ discountedPrice(100, 0.25); //=> 75.0
 
 But it _also_ seems a bit of a burden to **have** to pass the discount amount on
 every call. We'd like `discount` to _default_ to `0.25`. It'll be 25% off
-_unless_ we choose to pass a new discount percentage into `discountedPrice`. We
-set the default value by simply assigning the default value in the parameter list:
+_unless_ we choose to pass a new discount percentage into `discountedPrice()`. We
+set the default value by simply assigning the value in the parameter list:
 
 ```js
 function discountedPrice(itemPrice, discount = 0.25){
@@ -76,7 +76,7 @@ discountedPrice(100); //=> 75.0
 ```
 
 Then if we want to use a different discount, we simply pass the new value as the
-second argument — that value will _override_ the default value
+second argument — that value will _override_ the default value:
 
 ```js
 discountedPrice(100, 0.5); //=> 50.0
@@ -99,10 +99,10 @@ discountedPrice(100);
 // => NaN
 ```
 
-Now say we want to add a `tax` parameter to `discountedPrice` so that we can
-include a tax percentage to be added to the discounted sales price. First let's
+Now say we want to add a `tax` parameter to `discountedPrice()` so that we can
+include a tax percentage to be added to the discounted sales price. First we
 put our function declaration back the way it was, with `discount = .25` last.
-Then we'll add `tax` as the second parameter:
+Then we add `tax` as the second parameter:
 
 ```js
 function discountedAndTaxedPrice(itemPrice, tax, discount = 0.25) {
@@ -117,7 +117,7 @@ discountedAndTaxedPrice(100, 0.10, 0.20); //=> 88
 ## Use JavaScript's `rest` Parameter to Define Parameters in a function
 
 You might have heard a little bit about JavaScript's magical "three dots". These
-three dots can be used in two very different ways - as the `rest` parameter and
+three dots can be used in two very different ways — as the `rest` parameter and
 as the `spread` operator. The `rest` parameter allows you to collect the `rest`
 of your remaining arguments that you are passing into your function into an
 array, while the `spread` operator allows you to pass elements of an array into
@@ -138,10 +138,10 @@ muppetLab("Dr. Bunson", "Beaker", "Miss Piggy", "Kermit", "Animal");
 ```
 
 Here we have two parameters defined, so the first two arguments are stored into
-those variables. But what happens if we want to capture the rest of the
-arguments that are left over? The `rest` parameter allows us to take the rest of
-the arguments that we pass in to the function, regardless of how many there are,
-and gather them into an array. Here's how this works:
+those variables. But what happens if we want to capture the left over arguments?
+The `rest` parameter allows us to take the rest of the arguments that we pass in
+to the function, regardless of how many there are, and gather them into an
+array. Here's how this works:
 
 ```js
 function muppetLab(a, b, ...muppets) {
@@ -159,7 +159,7 @@ If we call `muppetLab()` and only pass two arguments, the value of `muppets`
 will be an empty array.
 
 Since the `rest` parameter gathers the rest of the arguments given to a
-function, it should always come at the end of a list of parameters.
+function, it should always come at the end of the list of parameters.
 
 ## Use JavaScript's `spread` Operator in a Function Call
 
