@@ -1,4 +1,4 @@
-# Default / Rest / Spread as Function Arguments
+# Advanced Function Parameter Syntax: Default / Rest / Spread
 
 ## Learning Goals
 
@@ -22,8 +22,8 @@ customGreeting("Good morning", "Pouja", "fantastic", "Tuesday");
 ```
 
 This always works, and is perfectly adequate a lot of the time. However, for
-those times when our needs may be more complex, JavaScript provides several helpful
-tools for handling parameters and arguments that can make our code more flexible
+those times when our needs may be more complex, JavaScript provides several
+helpful tools that can make handling of parameters and arguments more flexible
 and efficient: default values, the `rest` parameter and the `spread` operator.
 We will learn how to use all three in this lesson.
 
@@ -114,14 +114,36 @@ discountedAndTaxedPrice(100, 0.10); //=> 82.5
 discountedAndTaxedPrice(100, 0.10, 0.20); //=> 88
 ```
 
+## Use JavaScript's `spread` Operator in a Function Call
+
+In previous lessons, we've used JavaScript's `spread` operator to copy an array;
+it "spreads out" the elements of the original array into a new array. We can use
+`spread` in the exact same way to pass elements of an array into a function as
+an argument! Try it out in console with a simple add function:
+
+```js
+function add(a, b, c) {
+  return a + b + c ;
+}
+const arr = [1, 2, 3];
+
+add(...arr); // returns 6
+```
+
+Just as it does when we use `spread` to copy an array, the JavaScript engine
+sees the `spread` operator and knows to "spread out" the elements in the array
+into the parentheses. In other words, it converts this: `add(...arr)` into this:
+`add(1, 2, 3)`.
+
+Play around with it using a bigger array and see what happens when the array has
+more numbers than our function has parameters.
+
 ## Use JavaScript's `rest` Parameter to Define Parameters in a Function
 
-You might have heard a little bit about JavaScript's magical "three dots". These
-three dots can be used in two very different ways — as the `rest` parameter and
-as the `spread` operator. The `rest` parameter allows you to collect the `rest`
-of your remaining arguments that you are passing into your function into an
-array, while the `spread` operator allows you to pass elements of an array into
-a function as an argument.
+We've learned how to use the `spread` operator in our function _calls_, but we
+can also use the `...` syntax in our function's parameter list. In this context,
+it's called the `rest` parameter because it allows us to capture the `rest` of
+the arguments that are passed into the function and store them in an array.
 
 Sometimes, we might not know exactly how many arguments we want to pass into a
 function, but we might know that we only want to do something with the first two
@@ -155,42 +177,22 @@ function muppetLab(a, b, ...muppets) {
 muppetLab("Dr. Bunson", "Beaker", "Miss Piggy", "Kermit", "Animal");
 ```
 
-If we call `muppetLab()` and only pass two arguments, the value of `muppets`
-will be an empty array.
+The first two argument values are stored in `a` and `b`, respectively, and the
+remaining values are stored in the `muppets` array. If we call `muppetLab()` and
+only pass two arguments, the value of `muppets` will be an empty array.
 
-Since the `rest` parameter gathers the rest of the arguments given to a
+Since the `rest` parameter gathers the "rest" of the arguments given to a
 function, it should always come at the end of the list of parameters.
-
-## Use JavaScript's `spread` Operator in a Function Call
-
-With the `rest` operator, JavaScript allowed us to put the remaining arguments
-into an array. The `spread` operator allows us to pass elements of an array into
-a function as an argument. Try it out in console with a simple add function:
-
-```js
-function add(a, b, c) {
-  return a + b + c ;
-}
-const arr = [1, 2, 3];
-
-add(...arr); // returns 6
-```
-
-So what's happening here? We have a simple add function, with three arguments,
-and we are passing in an array using the `spread` operator. The function is
-adding all three numbers contained within the array. Play around with it using a
-bigger array and see what happens when the array has more numbers than our
-function has parameters.
 
 ## Conclusion
 
-Since the syntax here is similar, how do we know when JavaScript is using the
-`spread` operator and when it's using the `rest` parameter? It's all about
-context. If the three dots occur when you are _calling_ the function, then it's
-the `spread` operator. If they happen when you're _defining_ the function, it's
-the `rest` parameter. Don't forget to use default parameters when you have an
-argument that you are going to be defining on a regular basis to increase your
-code efficiency!
+Since the syntax for the `spread` operator and the `rest` parameter is the same,
+how do we know when JavaScript is using the `spread` operator and when it's
+using the `rest` parameter? It's all about context. If the three dots occur when
+you are _calling_ the function, then it's the `spread` operator. If they happen
+when you're _defining_ the function, it's the `rest` parameter. Don't forget to
+use default parameters when you have an argument that you are going to be
+defining on a regular basis to increase your code efficiency!
 
 ## Resources
 
