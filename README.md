@@ -186,13 +186,20 @@ function, it should always come at the end of the list of parameters.
 
 ## Conclusion
 
-Since the syntax for the `spread` operator and the `rest` parameter is the same,
-how do we know when JavaScript is using the `spread` operator and when it's
-using the `rest` parameter? It's all about context. If the three dots occur when
-you are _calling_ the function, then it's the `spread` operator. If they happen
-when you're _defining_ the function, it's the `rest` parameter. Don't forget to
-use default parameters when you have an argument that you are going to be
-defining on a regular basis to increase your code efficiency!
+In this lesson, we've learned about three tools we can use with arguments and
+parameters: `default`, `spread`, and `rest`. We use `default` any time we have a
+value we want to use by default for a parameter but still want to be able to
+override that value easily. We can use the `spread` operator to efficiently pass
+values in an array as arguments to a function. Finally, we use the `rest`
+parameter when we want to capture arguments in an array. This can be
+particularly helpful when we aren't sure how many arguments will be passed in
+but still want access to all of them inside our function.
+
+Given that the syntax for the `spread` operator and the `rest` parameter is the
+same, how do we know when JavaScript is using the `spread` operator and when
+it's using the `rest` parameter? It's all about context. If the three dots occur
+when you are _calling_ the function, then it's the `spread` operator. If they
+happen when you're _defining_ the function, it's the `rest` parameter.
 
 ## Resources
 
